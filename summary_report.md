@@ -283,22 +283,78 @@ This ensures an email notification is sent when 75% of the $200 budget ($150) is
 
 ---
 
-## 10. Summary of Completed Tasks
+## 10. Formal Completion Checklist
 
-| Task | Status | Evidence |
+The following checklist explicitly verifies that every required task for this assignment has been completed and evidenced.
+
+### Account Setup
+- [x] **Azure Free Tier account created** — email, phone (SMS), and payment card verified during signup (Section 2)
+- [x] **Active subscription confirmed** — `Azure subscription 1` visible in portal (`screenshots/01_azure_dashboard.png`)
+- [x] **MFA enabled** — Microsoft account MFA active via Microsoft Authenticator / SMS (Section 6.3)
+
+### Portal Navigation
+- [x] **Dashboard navigated** — Azure Portal home reviewed; left sidebar, top nav bar, and favourites explored
+- [x] **Search bar used** — searched `"storage accounts"`, results categorised as Services / Marketplace / Documentation (`screenshots/06_portal_navigation.png`)
+- [x] **Breadcrumbs explained** — hierarchical path navigation documented in Section 3.3
+- [x] **Service blade menus explained** — left-side contextual menu documented in Section 3.4
+
+### Dashboard Customisation
+- [x] **Custom dashboard created** — `My Dashboard` created with pinned monitoring tiles (`screenshots/04_custom_dashboard.png`)
+- [x] **Tiles pinned** — Cosmos DB latency and request metric tiles added and displayed
+
+### Resource Group & Deployment
+- [x] **Resource Group created** — `assignment-rg` provisioned in UK South (`screenshots/02_resource_group.png`)
+- [x] **Region selected and justified** — UK South chosen; rationale documented in Section 5
+- [x] **Storage Account deployed** — `mystaticdoc` (PaaS, West Europe, LRS) deployed successfully (`screenshots/07_storage_account.png`)
+
+### Identity & Access Management
+- [x] **Microsoft Entra ID accessed** — Roles and Administrators page reviewed
+- [x] **RBAC roles reviewed** — Owner, Contributor, Reader roles documented (Section 6.2)
+- [x] **Student role confirmed** — Global Administrator role visible (`screenshots/08_entra_id_rbac.png`)
+
+### Cost Management & Billing
+- [x] **Cost Analysis accessed** — $4.49 spend recorded (`screenshots/03_cost_management.png`)
+- [x] **Budget created** — `olamileye_budget`, $200/month, monthly reset
+- [x] **75% alert configured** — Alert triggers at $150 (75% of $200), email recipient set (`screenshots/05_budget_75_alert.png`)
+
+### Documentation
+- [x] **Shared Responsibility Model documented** — PaaS vs IaaS vs SaaS comparison table included (Section 8)
+- [x] **Free Tier limits documented** — $200 credit, 12-month services, 5 GB storage (Section 2)
+- [x] **All 8 screenshots referenced** — README screenshot index maps each file to its content
+- [x] **Troubleshooting section included** — Section 11 covers common signup and deployment errors
+
+---
+
+## 11. Troubleshooting – Common Errors
+
+The following errors were encountered or are commonly reported during Azure Free Tier setup and resource deployment.
+
+### 11.1 Account Signup Errors
+
+| Error | Cause | Fix |
 |---|---|---|
-| Account Registration (email/phone/CC) | ✅ Done | Section 2 step-by-step |
-| Portal Navigation (search, breadcrumbs) | ✅ Done | Section 3, `screenshots/06_portal_navigation.png` |
-| Custom Dashboard with pinned tiles | ✅ Done | `screenshots/04_custom_dashboard.png` |
-| Subscription Identified | ✅ Done | `screenshots/01_azure_dashboard.png` |
-| Resource Group `assignment-rg` Created | ✅ Done | `screenshots/02_resource_group.png` |
-| Azure AD / RBAC Reviewed | ✅ Done | Section 6 |
-| MFA / Account Security Reviewed | ✅ Done | Section 6.3 |
-| Region Selected (UK South) | ✅ Done | Section 5 |
-| Resource Deployed (`mystaticdoc` Storage Account) | ✅ Done | Section 7, `screenshots/07_storage_account.png` |
-| Cost Analysis Accessed | ✅ Done | `screenshots/03_cost_management.png` |
-| Budget Alert at 75% Configured | ✅ Done | `screenshots/05_budget_75_alert.png` |
-| Shared Responsibility Model Documented | ✅ Done | Section 8 |
+| **"Your account cannot be verified"** | Phone number already used on another Azure account | Use a different phone number or contact Azure Support |
+| **"Credit card was declined"** | Prepaid/virtual cards are not accepted | Use a standard Visa/Mastercard debit card linked to a bank account |
+| **"This offer is not available in your country"** | Free Tier not available in certain regions | Select **Nigeria** as country during signup; ensure card is internationally enabled |
+| **SMS verification code not received** | Network delay or incorrect country code | Wait 2 minutes and retry; ensure `+234` prefix is used for Nigerian numbers |
+| **"Email is already associated with a Microsoft account"** | Existing account conflict | Sign in with the existing account instead of creating a new one |
+
+### 11.2 Portal & Resource Deployment Errors
+
+| Error | Cause | Fix |
+|---|---|---|
+| **"The subscription is not registered to use namespace 'Microsoft.Storage'"** | Resource provider not enabled | Go to **Subscription → Resource providers** → search `Microsoft.Storage` → click **Register** |
+| **"Storage account name is already taken"** | Storage names are globally unique across all Azure tenants | Choose a different name (e.g. add your initials or a number: `mystaticdoc01`) |
+| **"Deployment failed – QuotaExceeded"** | Free Tier compute quota reached (750 hrs/month for B1s VMs) | Delete unused VMs or wait until the quota resets at the start of the next month |
+| **"AuthorizationFailed" when creating a Resource Group** | Insufficient permissions on the subscription | Ensure you are signed in as the account **Owner** (the account that created the subscription) |
+| **Dashboard tiles not loading / showing errors** | Resource was deleted or access revoked | Remove the broken tile from the dashboard and re-pin it from the relevant resource page |
+| **Budget alert email not received** | Incorrect email address entered, or spam filter | Check junk/spam folder; verify recipient email in **Cost Management → Budgets → Edit** |
+
+### 11.3 General Tips
+
+- Always check the **Notifications bell** (top right) after any deployment — it shows success or failure with a detailed error message.
+- Use the **Activity Log** on any resource blade to see a full history of operations and error codes.
+- If the portal becomes unresponsive, clear your browser cache or try a different browser (Microsoft Edge is recommended for best compatibility).
 
 ---
 
